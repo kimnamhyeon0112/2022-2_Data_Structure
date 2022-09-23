@@ -3,15 +3,10 @@ class Main {
 
 fun main()
 {
-    var o1: TestDataClass = TestDataClass(3)
-    var o2: TestDataClass = TestDataClass(5, "hello")
-    val o3: TestDataClass = o2.copy()
+    var o1: TestDataClass = TestDataClass(1, "hi")
+    var o2: TestDataClass = TestDataClass(1, "hi")
+    o2.c = true
 
-    val eq: Boolean = o1.equals(o2)
-    println(eq)
-    println(o2.equals(o3))
-
-    var (a, b) = o1
-    println("$a\t$b")
-    println(o1)
+    println(o1.equals(o2))
+    print((o2))
 }
