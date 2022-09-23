@@ -1,10 +1,13 @@
 fun main()
 {
     val list = LinkedList<Int>()
+    var poppedValue = list.pop()
+    println(poppedValue)
+
     list.append(10).append(30).append(20)
-    println("Before inserting: $list")
-    var middleNode = list.nodeAt(1)!!
-    for (i in 1..3)
-        middleNode = list.insert(-1 * i, middleNode)
-    println("After inserting: $list")
+
+    println("Before popping list: $list")
+    poppedValue = list.pop()
+    println("After popping list: $list")
+    println("Popped value: $poppedValue")
 }
