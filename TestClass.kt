@@ -1,14 +1,16 @@
-open class Animal (var age: Int)
-
-class Cat(age: Int = 1, var name: String): Animal (age)
+class Man(
+    name: String,
+    var age: Int,
+    val job: String)
 {
-    fun talk()
-    {
-        print("${name}: ")
-        for (i in 1..age)
-        {
-            print("야옹")
-        }
-        println()
-    }
+    var address: String = "Nowhere"
+        get
+        set(v) {field = "address: $v"}
+
+    var cursed: Boolean = false
+    var speed: Int = 100
+        get() {return field - (if (cursed == true) 10 else 0)}
+
+    val strength: Int = 50
+        get
 }
