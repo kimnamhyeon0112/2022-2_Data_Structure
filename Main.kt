@@ -4,10 +4,8 @@ class Main
 
 fun main()
 {
-    var o1: TestDataClass = TestDataClass(1, "hi")
-    var o2: TestDataClass = TestDataClass(1, "hi")
-    o2.c = true
-
-    println(o1.equals(o2))
-    print((o2))
+    var o1: TestAbstClass = ChildOfAbstClass()
+    println(o1)
+    println(o1.f1())
+    println(o1.f2())
 }
