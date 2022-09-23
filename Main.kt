@@ -1,6 +1,8 @@
 fun main()
 {
     val list = LinkedList<Int>()
-    list.push(10).push(30).push(20)
+    list.append(10)
+    list.append(30)
+    list.append(20)
     println(list)
 }
