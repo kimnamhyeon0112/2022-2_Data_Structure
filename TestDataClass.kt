@@ -3,5 +3,7 @@ data class TestDataClass(
     val b: String="Empty"   // getter 자동생성
 )
 {
-
+    override fun toString(): String{
+        return "Var a = $a, Val b = $b"
+    }
 }
