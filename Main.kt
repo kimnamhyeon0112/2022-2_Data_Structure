@@ -1,17 +1,9 @@
-class Main
+fun main()
 {
-}
-
-fun main() {
-    var tc = Man("Kevin", 23, "Student")
-    println(tc.age)
-    println(tc.job)
-    println(tc.address)
-    println(tc.strength)
-
-    tc.address = "Earth"
-    println(tc.address)
-
-    tc.cursed = true
-    println(tc.speed)
+    val node1 = Node(value = 1)
+    val node2 = Node(value = 2)
+    val node3 = Node(value = 3)
+    node1.next = node2
+    node2.next = node3
+    println(node1)
 }
