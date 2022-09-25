@@ -1,7 +1,6 @@
 interface StackInterface<Element> {
     val count : Int
         get
-
     fun peek(): Element?
     val isEmpty: Boolean
         get() = count == 0

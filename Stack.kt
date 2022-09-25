@@ -19,9 +19,8 @@ class Stack<Element>() : StackInterface<Element> {
         get() = storage.size
 
     override fun pop(): Element? {
-        if (storage.size == 0) {
+        if (storage.size == 0)
             return null
-        }
         return storage.removeAt(count - 1)
     }
 }

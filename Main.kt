@@ -6,6 +6,7 @@ fun main()
         push(3)
         push(4)
     }
+
     print(stack)
     println(stack.peek())
     print(stack)
