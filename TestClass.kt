@@ -82,3 +82,7 @@ sealed class Fruit1{
 sealed class Fruit2
 class Apple():Fruit2()
 class Banana():Fruit2()
+
+enum class WeekDay{
+    Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+}
