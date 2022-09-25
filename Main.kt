@@ -4,11 +4,8 @@ fun main()
     list.push(3)
     list.push(2)
     list.push(1)
-    println(list)
 
-    var s: String = ""
-    for (item in list)
-        s += " -> ${item * 2}"
-    s = s.substring(4)
-    print(s)
+    var list2 = LinkedList<Int>()
+    list2.append(2).append(3)
+    println(list.containsAll(list2))
 }
