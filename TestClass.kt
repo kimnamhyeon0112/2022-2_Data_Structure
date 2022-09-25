@@ -96,3 +96,21 @@ enum class WeekDay(val favor: Int){
         println("I love ${this.name} ${this.favor}%")
     }
 }
+
+open class Animal (var age: Int)
+
+class Cat(age: Int = 1, var name: String): Animal (age){
+    constructor(age: Int): this(age, "Noname"){
+        println("이름없는 고양이 생성됨.")
+    }
+    constructor(): this(name="Noname"){
+        println("이름없는 고양이가 기본 나이로 생성됨.")
+    }
+    fun talk(){
+        print("${name}: ")
+        for (i in 1..age){
+            print("야옹")
+        }
+        println()
+    }
+}
