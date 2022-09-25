@@ -14,3 +14,19 @@ class Man(
     val strength: Int = 50
         get
 }
+
+class Flower private constructor(val name: String) {
+    companion object bud {
+        private var numFlowers: Int = 0
+        fun bloom(name: String): Flower? {
+            if (numFlowers > 0)
+                return null
+            numFlowers += 1
+            return Flower(name)
+        }
+    }
+
+    override fun toString(): String {
+        return "Flower $name"
+    }
+}
