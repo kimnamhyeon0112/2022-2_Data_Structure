@@ -83,6 +83,16 @@ sealed class Fruit2
 class Apple():Fruit2()
 class Banana():Fruit2()
 
-enum class WeekDay{
-    Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+enum class WeekDay(val favor: Int){
+    Sunday(80),
+    Monday(0),
+    Tuesday(10),
+    Wednesday(20),
+    Thursday(30),
+    Friday(90),
+    Saturday(100);
+
+    fun showFavor(){
+        println("I love ${this.name} ${this.favor}%")
+    }
 }
