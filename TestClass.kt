@@ -113,4 +113,15 @@ class Cat(age: Int = 1, var name: String): Animal (age){
         }
         println()
     }
+    fun helloToOther(c: Cat?){
+        print("${name}: ")
+        val isOlder = c?.let {
+            it.age > this.age
+        }
+        when(isOlder){
+            false -> println("(${c.name}에게)안녕.")
+            true -> println("(${c.name}에게)안녕하세요.")
+            else -> println("...")
+        }
+    }
 }
