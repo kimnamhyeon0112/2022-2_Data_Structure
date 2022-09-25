@@ -4,9 +4,10 @@ fun main() {
     var c3 = Cat(5,"나비")
     println("-----------------------")
 
-    c2?.run {
-        helloToOther(c1)
-        helloToOther(c2)
-        helloToOther(c3)
-    }
+    c2?.also {
+        it.age = 10
+        it.helloToOther(c1)
+        it.helloToOther(null)
+        it.helloToOther(c3)
+    }?.talk()
 }
