@@ -147,6 +147,19 @@ class LinkedList<T> : Iterable<T>, Collection<T>
         }
         return result
     }
+
+    fun getMiddle(): Node<T>? {
+        var slow = this.nodeAt(0)
+        var fast = this.nodeAt(0)
+        while (fast != null) {
+            fast = fast.next
+            if (fast != null) {
+                slow = slow?.next
+                fast = fast?.next
+            }
+        }
+        return slow
+    }
 }
 
 class LinkedListIterator<K> (
