@@ -51,3 +51,25 @@ class Outer {
         println(Nested().nv)
     }
 }
+
+class Smartphone(val model : String){
+    private val cpu = "i5-8900"
+    var name: String = "Noname"
+    fun func1(){
+        println("name is $name")
+    }
+
+    inner class Inner{
+        fun which_cpu(){
+            println(cpu)
+            getSomething()
+        }
+    }
+    companion object{
+        const val country = "Korea"
+        fun getSomething() = println("Get country")
+        fun which_cpu(){
+            println("I don't know")
+        }
+    }
+}

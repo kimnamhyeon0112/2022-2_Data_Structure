@@ -1,9 +1,7 @@
 fun main() {
-    val output = Outer.Nested().greeting()
-    println(output)
-
+    var s1 = Smartphone("A32")
+    s1.Inner().which_cpu()
+    Smartphone.Companion.which_cpu()
     val outer = Outer()
-    println(outer.outside())
-
     Outer.Nested().accessCompanionMethod()
 }
