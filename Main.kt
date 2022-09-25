@@ -1,8 +1,9 @@
 fun main() {
-    var f1 = Flower.bud.bloom("Rose")
-    var f2 = Flower.bloom("Hibiscus")
+    val output = Outer.Nested().greeting()
+    println(output)
 
-    println(f1)
-    println(f2)
+    val outer = Outer()
+    println(outer.outside())
 
+    Outer.Nested().accessCompanionMethod()
 }

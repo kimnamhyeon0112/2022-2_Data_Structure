@@ -30,3 +30,24 @@ class Flower private constructor(val name: String) {
         return "Flower $name"
     }
 }
+
+class Outer {
+    val ov = 5
+    class Nested{
+        val nv = 10
+        fun greeting() = "Nested"
+        fun accessCompanionMethod(){
+            println(country)
+            getSomething()
+        }
+    }
+    companion object{
+        const val country = "Korea"
+        fun getSomething() = println("Get Country")
+        fun call_nested_greeting() {Outer.Nested().greeting()}
+    }
+    fun outside(){
+        val msg = Nested().greeting()
+        println(Nested().nv)
+    }
+}
