@@ -1,12 +1,15 @@
 fun main()
 {
-    val list = LinkedList<Int>()
-    list.append(3)
-    list.append(2)
-    list.append(1)
-    list.append(4)
-    list.append(5)
-
-    println("Original: $list")
-    println("Reversed: ${list.reversed()}")
+    val stack = Stack<Int>().apply{
+        push(1)
+        push(2)
+        push(3)
+        push(4)
+    }
+    print(stack)
+    val poppedElement = stack.pop()
+    if (poppedElement != null){
+        println("Popped: $poppedElement")
+    }
+    print(stack)
 }
