@@ -1,8 +1,14 @@
-class LinkedList<T>
+class LinkedList<T> : Iterable<T>
 {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-    private var size = 0
+    var size = 0
+        private set
+
+    override fun iterator(): Iterator<T>
+    {
+        return LinkedListIterator(this)
+    }
     fun isEmpty(): Boolean{
             return size == 0
     }
@@ -98,5 +104,26 @@ class LinkedList<T>
         node.next = node.next?.next
         return result
     }
+}
 
+class LinkedListIterator<K> (
+    private val list: LinkedList<K>
+):  Iterator<K> {
+    private var index = 0
+    private var lastNode: Node<K>? = null
+
+    override fun next(): K {
+        if (index >= list.size) throw IndexOutOfBoundsException()
+        lastNode = if (index == 0)
+        {
+            list.nodeAt(0)
+        }
+        else
+            lastNode?.next
+        index++
+        return lastNode!!.value
+    }
+    override fun hasNext(): Boolean {
+        return index < list.size
+    }
 }
