@@ -7,9 +7,6 @@ fun main()
         push(4)
     }
     print(stack)
-    val poppedElement = stack.pop()
-    if (poppedElement != null){
-        println("Popped: $poppedElement")
-    }
+    println(stack.peek())
     print(stack)
 }

@@ -12,10 +12,16 @@ class Stack<Element>() : StackInterface<Element> {
         storage.add(element)
     }
 
+    override fun peek(): Element? {
+        return storage.lastOrNull()
+    }
+    override val count: Int
+        get() = storage.size
+
     override fun pop(): Element? {
         if (storage.size == 0) {
             return null
         }
-        return storage.removeAt(storage.size - 1)
+        return storage.removeAt(count - 1)
     }
 }
