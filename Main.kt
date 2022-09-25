@@ -6,6 +6,7 @@ fun main()
     list.append(1)
     list.append(4)
     list.append(5)
-    println(list)
-    println(list.getMiddle()?.value)
+
+    println("Original: $list")
+    println("Reversed: ${list.reversed()}")
 }
