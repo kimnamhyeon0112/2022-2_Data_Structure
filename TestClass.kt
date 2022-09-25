@@ -73,3 +73,12 @@ class Smartphone(val model : String){
         }
     }
 }
+
+sealed class Fruit1{
+    class Apple():Fruit1()
+    class Banana():Fruit1()
+}
+
+sealed class Fruit2
+class Apple():Fruit2()
+class Banana():Fruit2()
