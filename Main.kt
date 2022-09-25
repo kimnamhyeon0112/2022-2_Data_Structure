@@ -4,10 +4,10 @@ fun main() {
     var c3 = Cat(5,"나비")
     println("-----------------------")
 
-    c2?.also {
-        it.age = 10
-        it.helloToOther(c1)
-        it.helloToOther(null)
-        it.helloToOther(c3)
+    c2?.apply {
+        this.age = 10
+        this.helloToOther(c1)
+        this.helloToOther(null)
+        this.helloToOther(c3)
     }?.talk()
 }
