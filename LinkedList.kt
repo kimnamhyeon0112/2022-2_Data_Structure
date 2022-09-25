@@ -178,6 +178,15 @@ class LinkedList<T> : Iterable<T>, Collection<T>
         }
         return result
     }
+
+    fun removeHead(): T?{
+        val head = head?: return null
+        size--
+        this.head = head.next
+        if (isEmpty())
+            this.tail = null
+        return head.value
+    }
 }
 
 class LinkedListIterator<K> (
