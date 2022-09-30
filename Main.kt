@@ -30,5 +30,5 @@ fun makeBeverageTree(): TreeNode<String> {
 
 fun main() {
     val tree = makeBeverageTree()
-    tree.forEachDepthFirst { println(it.value) }
+    tree.forEachLevelOrder { println(it.value) }
 }

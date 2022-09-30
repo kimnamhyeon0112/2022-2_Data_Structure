@@ -9,6 +9,18 @@ class TreeNode<T> (val value: T) {
             it.forEachDepthFirst(visit)
         }
     }
+
+    fun forEachLevelOrder(visit: Visitor<T>) {
+        visit(this)
+        val queue = LinkedListQueue<TreeNode<T>>()
+        children.forEach {queue.enqueue(it)}
+        var node = queue.dequeue()
+        while (node != null){
+            visit(node)
+            node.children.forEach {queue.enqueue(it)}
+            node = queue.dequeue()
+        }
+    }
 }
 
 typealias Visitor<T> = (TreeNode<T>) -> Unit
