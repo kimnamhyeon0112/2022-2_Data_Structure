@@ -1,5 +1,5 @@
 fun main() {
-    val queue = ArrayListQueue<String>().apply {
+    val queue = RingBufferQueue<String>(2).apply {
         enqueue("Ray")
         enqueue("Brian")
         enqueue("Eric")
