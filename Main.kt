@@ -1,11 +1,12 @@
+import kotlin.collections.ArrayDeque
 fun main() {
-    val queue = RingBufferQueue<String>(2).apply {
-        enqueue("Ray")
-        enqueue("Brian")
-        enqueue("Eric")
-    }
-    println(queue)
-    println(queue.dequeue())
-    println(queue)
-    println("Next up: ${queue.peek()}")
+    val arDeque = ArrayDeque<Int>()
+    arDeque.add(1)
+    arDeque.add(2)
+    arDeque.addLast(5)
+    arDeque.addFirst(10)
+
+    println(arDeque)
+    arDeque.removeLast()
+    println(arDeque)
 }
