@@ -21,6 +21,17 @@ class TreeNode<T> (val value: T) {
             node = queue.dequeue()
         }
     }
+
+    fun search(value: T): TreeNode<T>? {
+        var result: TreeNode<T>? = null
+        forEachLevelOrder {
+            if (it.value == value) {
+                result = it
+            }
+            // println("visited: ${it.value}")
+        }
+        return result
+    }
 }
 
 typealias Visitor<T> = (TreeNode<T>) -> Unit
