@@ -1,9 +1,12 @@
-fun test(str: String?){
-    val the_str = str ?: "unknown"
-    println(the_str)
-}
+import java.util.Calendar
 
 fun main() {
-    test("Hello")
-    test(null)
+    val calendar = Calendar.getInstance()
+    if(calendar.firstDayOfWeek==Calendar.SUNDAY){
+        calendar.firstDayOfWeek=Calendar.MONDAY
+    }
+    if(!calendar.isLenient) {
+        calendar.isLenient = true
+    }
+    println(calendar)
 }
