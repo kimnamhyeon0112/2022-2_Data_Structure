@@ -30,10 +30,5 @@ fun makeBeverageTree(): TreeNode<String> {
 
 fun main() {
     val tree = makeBeverageTree()
-    tree.search("ginger ale")?.let {
-        println("Found node: ${it.value}")
-    }
-    tree.search("WKD Blue")?.let {
-        println(it.value)
-    } ?: println("Couldn't find WKD Blue")
+    println(tree)
 }
