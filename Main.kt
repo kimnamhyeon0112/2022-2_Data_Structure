@@ -1,12 +1,11 @@
-import kotlin.collections.ArrayDeque
-fun main() {
-    val arDeque = ArrayDeque<Int>()
-    arDeque.add(1)
-    arDeque.add(2)
-    arDeque.addLast(5)
-    arDeque.addFirst(10)
+typealias Predicate<T> = (T) -> Boolean
 
-    println(arDeque)
-    arDeque.removeLast()
-    println(arDeque)
+fun foo(p: Predicate<Int>) = p(42)
+
+fun main() {
+    val f: (Int) -> Boolean = { it > 0 }
+    println(foo(f))
+
+    val p: Predicate<Int> = { it > 0 }
+    println(listOf(1, -2).filter(p))
 }
