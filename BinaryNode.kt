@@ -57,4 +57,13 @@ class BinaryNode<T: Comparable<T>>(var value: T) {
         return isBST(tree.leftChild, min, tree.value) &&
                 isBST(tree.rightChild, tree.value, max)
     }
+
+    override fun equals(other: Any?): Boolean {
+        return if (other != null && other is BinaryNode<*>) {
+            this.value == other.value &&
+                    this.leftChild == other.leftChild &&
+                    this.rightChild == other.rightChild
+        } else
+            false
+    }
 }
