@@ -1,4 +1,4 @@
-class BinaryNode<T>(var value: T) {
+class BinaryNode<T: Comparable<T>>(var value: T) {
     var leftChild: BinaryNode<T>? = null
     var rightChild: BinaryNode<T>? = null
 
@@ -45,4 +45,16 @@ class BinaryNode<T>(var value: T) {
     val min: BinaryNode<T>?
         get() = leftChild?.min ?: this
 
+    val isBinarySearchTree: Boolean
+        get() = isBST(this, min = null, max = null)
+
+    private fun isBST(tree: BinaryNode<T>?, min: T?, max: T?): Boolean {
+        tree ?: return true
+        if (min != null && tree.value <= min)
+            return false
+        else if (max != null && tree.value > max)
+            return false
+        return isBST(tree.leftChild, min, tree.value) &&
+                isBST(tree.rightChild, tree.value, max)
+    }
 }
