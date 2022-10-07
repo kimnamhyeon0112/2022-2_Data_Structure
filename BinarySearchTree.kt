@@ -7,7 +7,7 @@ class BinarySerachTree<T: Comparable<T>>() {
         value: T
     ): BinaryNode<T> {
         node ?: return BinaryNode(value)
-        if(value < node.value)
+        if (value < node.value)
             node.leftChild = insert(node.leftChild, value)
         else
             node.rightChild = insert(node.rightChild, value)
@@ -19,13 +19,16 @@ class BinarySerachTree<T: Comparable<T>>() {
     }
 
     fun contains(value: T): Boolean {
-        root ?: return false
-        var found = false
-        root?.traverseInOrder {
-            if (value == it) {
-                found = true
+        var current = root
+        while (current != null) {
+            if (current.value == value)
+                return true
+            current = if (value < current.value) {
+                current.leftChild
+            } else {
+                current.rightChild
             }
         }
-        return found
+        return false
     }
 }
