@@ -42,7 +42,7 @@ class AVLTree<T: Comparable<T>> {
             }
 
             -2 -> {
-                if (node.rightChild?.balanceFactor == -1)
+                if (node.rightChild?.balanceFactor == 1)
                     rightLeftRotate(node)
                 else
                     leftRotate(node)
@@ -50,5 +50,24 @@ class AVLTree<T: Comparable<T>> {
 
             else -> node
         }
+    }
+
+    private fun insert(node: AVLNode<T>?, value: T): AVLNode<T>? {
+        node ?: return AVLNode(value)
+        if (value < node.value) {
+            node.leftChild = insert(node.leftChild, value)
+        } else {
+            node.rightChild = insert(node.rightChild, value)
+        }
+        val balancedNode = balanced(node)
+        balancedNode?.height = Math.max(
+            balancedNode?.leftHeight ?: 0,
+            balancedNode?.rightHeight ?: 0
+        ) + 1
+        return balancedNode
+    }
+
+    fun insert(value: T) {
+        root = insert(root, value)
     }
 }
