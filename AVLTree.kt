@@ -19,4 +19,16 @@ class AVLTree<T: Comparable<T>> {
         pivot.height = max(pivot.leftHeight, pivot.rightHeight) + 1
         return pivot
     }
+
+    private fun rightLeftRotate(node: AVLNode<T>): AVLNode<T> {
+        val rightChild = node.rightChild ?: return node
+        node.rightChild = rightRotate(rightChild)
+        return leftRotate(node)
+    }
+
+    private fun leftRightRotate(node: AVLNode<T>): AVLNode<T> {
+        val leftChild = node.leftChild ?: return node
+        node.leftChild = leftRotate(leftChild)
+        return rightRotate(node)
+    }
 }
