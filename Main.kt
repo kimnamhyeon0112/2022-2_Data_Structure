@@ -17,5 +17,5 @@ fun makeBinaryTree(): BinaryNode<Int> {
 fun main()
 {
     val tree = makeBinaryTree()
-    tree.traversePostOrder { println(it) }
+    println(tree.height())
 }

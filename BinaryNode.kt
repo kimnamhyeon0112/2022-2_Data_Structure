@@ -35,4 +35,10 @@ class BinaryNode<T>(val value: T) {
         rightChild?.traversePostOrder(visit)
         visit(value)
     }
+
+    fun height(node: BinaryNode<T>? = this): Int {
+        return node?.let {
+            1 + max(height(node.leftChild), height(node.rightChild))
+        } ?: -1
+    }
 }
