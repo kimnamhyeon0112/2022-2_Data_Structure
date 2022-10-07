@@ -1,3 +1,4 @@
+import kotlin.math.pow
 class AVLTree<T: Comparable<T>> {
     var root: AVLNode<T>? = null
     override fun toString() = root?.toString() ?: "empty tree"
@@ -105,5 +106,17 @@ class AVLTree<T: Comparable<T>> {
             balancedNode.rightHeight
         ) + 1
         return balancedNode
+    }
+
+    fun leafNodesOfPerfect(height: Int):Int {
+        return 2.0.pow(height).toInt()
+    }
+
+    fun nodesOfPerfect(height: Int):Int {
+        var totalNodes = 0
+        (0..height).forEach { currentHeight ->
+            totalNodes += leafNodesOfPerfect(currentHeight)
+        }
+        return totalNodes
     }
 }
