@@ -17,4 +17,11 @@ class BinaryNode<T>(val value: T) {
         } ?: "${root}null\n"
     }
     override fun toString() = diagram(this)
+
+    fun traverseInOrder(visit: BinaryVisitor<T>){
+        leftChild?.traverseInOrder(visit)
+        visit(value)
+        rightChild?.traverseInOrder(visit)
+    }
+
 }
