@@ -1,28 +1,27 @@
-fun makeBinaryTree(): BinaryNode<Int> {
-    val zero = BinaryNode(0)
-    val one = BinaryNode(1)
-    val five = BinaryNode(5)
-    val seven = BinaryNode(7)
-    val eight = BinaryNode(8)
-    val nine = BinaryNode(9)
-    seven.leftChild = one
-    one.leftChild = zero
-    one.rightChild = five
-    seven.rightChild = nine
-    nine.leftChild = eight
-    val tree = seven
-    return tree
-}
+fun main() {
+    var t_hashMap = HashMap<String, Any>()
 
-fun main()
-{
-    val exampleTree = BinarySerachTree<Int>().apply {
-        insert(3); insert(1); insert(4)
-        insert(0); insert(2); insert(5)
+    t_hashMap.put("name", "투케이")
+    t_hashMap.put("age", 28)
+    println("put 데이터: " + t_hashMap.toString())
+
+    println("name 포함 여부:" + t_hashMap.containsKey("name"))
+
+    println("name 데이터:" + t_hashMap.get("name"))
+
+    for ((key, value) in t_hashMap) {
+        println("전체: ${key}:${value}")
     }
-    println("Tree before removal:")
-    println(exampleTree)
-    exampleTree.remove(3)
-    println("Tree after removing root:")
-    println(exampleTree)
+
+    t_hashMap.remove("age")
+    println("remove 데이터:" + t_hashMap.toString())
+
+    t_hashMap.replace("name","케이투")
+    println("replace 데이터:" + t_hashMap.toString())
+
+    t_hashMap.clear()
+    println("clear 데이터:" + t_hashMap.toString())
+
+
+
 }
