@@ -1,23 +1,14 @@
-class Car {
-    fun shape(str: String) {
-        println("빨강")
-    }
+import org.w3c.dom.css.Rect
 
-    fun num(int: Int) {
-        println("2")
-    }
-}
+open class Shape
+class Rectangle:Shape()
+fun Shape.getName() = "shape"
+fun Rectangle.getName() = "rectangle"
 
-fun Car.shape(str:String) {
-    println("노랑")
-}
-
-fun Car.num(str:String) {
-    println("3")
+fun printClassName(s:Shape) {
+    println(s.getName())
 }
 
 fun main() {
-    Car().shape("A")
-    Car().num(1)
-    Car().num("B")
+    printClassName(Rectangle())
 }
