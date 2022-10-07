@@ -55,3 +55,4 @@ class TreeNode<T> (val value: T) {
 }
 
 typealias Visitor<T> = (TreeNode<T>) -> Unit
+typealias BinaryVisitor<T> = (T) -> Unit

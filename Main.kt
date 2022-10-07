@@ -1,34 +1,21 @@
-fun makeBeverageTree(): TreeNode<String> {
-    val tree = TreeNode("Beverage")
-    val hot = TreeNode("hot")
-    val cold = TreeNode("cold")
-    val tea = TreeNode("tea")
-    val coffee = TreeNode("coffee")
-    val chocolate = TreeNode("cocoa")
-    val blackTea = TreeNode("black")
-    val greenTea = TreeNode("green")
-    val chaiTea = TreeNode("chai")
-    val soda = TreeNode("soda")
-    val milk = TreeNode("milk")
-    val gingerAle = TreeNode("ginger ale")
-    val bitterLemon = TreeNode("bitter lemon")
-
-    tree.add(hot)
-    tree.add(cold)
-    tree.add(tea)
-    tree.add(coffee)
-    tree.add(chocolate)
-    tree.add(soda)
-    tree.add(milk)
-    tree.add(blackTea)
-    tree.add(greenTea)
-    tree.add(chaiTea)
-    tree.add(gingerAle)
-    tree.add(bitterLemon)
+fun makeBinaryTree(): BinaryNode<Int> {
+    val zero = BinaryNode(0)
+    val one = BinaryNode(1)
+    val five = BinaryNode(5)
+    val seven = BinaryNode(7)
+    val eight = BinaryNode(8)
+    val nine = BinaryNode(9)
+    seven.leftChild = one
+    one.leftChild = zero
+    one.rightChild = five
+    seven.rightChild = nine
+    nine.leftChild = eight
+    val tree = seven
     return tree
 }
 
-fun main() {
-    val tree = makeBeverageTree()
+fun main()
+{
+    val tree = makeBinaryTree()
     println(tree)
 }
