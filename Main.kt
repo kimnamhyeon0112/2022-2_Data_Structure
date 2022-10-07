@@ -1,13 +1,23 @@
-fun List<Int>.getHigherThan(num:Int):List<Int> {
-    val result = arrayListOf<Int>()
-    for (item in this)
-        if (item > num)
-            result.add(item)
-    return result
+class Car {
+    fun shape(str: String) {
+        println("빨강")
+    }
+
+    fun num(int: Int) {
+        println("2")
+    }
+}
+
+fun Car.shape(str:String) {
+    println("노랑")
+}
+
+fun Car.num(str:String) {
+    println("3")
 }
 
 fun main() {
-    val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
-    val filtered = numbers.getHigherThan(3).toString()
-    System.out.println(filtered)
+    Car().shape("A")
+    Car().num(1)
+    Car().num("B")
 }
