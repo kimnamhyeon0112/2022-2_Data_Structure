@@ -2,10 +2,12 @@ class BinaryNode<T: Comparable<T>>(var value: T) {
     var leftChild: BinaryNode<T>? = null
     var rightChild: BinaryNode<T>? = null
 
-    private fun diagram(node: BinaryNode<T>?,
-                        top: String = "",
-                        root: String = "",
-                        bottom: String = ""): String {
+    private fun diagram(
+        node: BinaryNode<T>?,
+        top: String = "",
+        root: String = "",
+        bottom: String = ""
+    ): String {
         return node?.let {
             if (node.leftChild == null && node.rightChild == null) {
                 "$root${node.value}\n"
@@ -16,21 +18,22 @@ class BinaryNode<T: Comparable<T>>(var value: T) {
             }
         } ?: "${root}null\n"
     }
+
     override fun toString() = diagram(this)
 
-    fun traverseInOrder(visit: BinaryVisitor<T>){
+    fun traverseInOrder(visit: BinaryVisitor<T>) {
         leftChild?.traverseInOrder(visit)
         visit(value)
         rightChild?.traverseInOrder(visit)
     }
 
-    fun traversePreOrder(visit: BinaryVisitor<T>){
+    fun traversePreOrder(visit: BinaryVisitor<T>) {
         visit(value)
         leftChild?.traversePreOrder(visit)
         rightChild?.traversePreOrder(visit)
     }
 
-    fun traversePostOrder(visit: BinaryVisitor<T>){
+    fun traversePostOrder(visit: BinaryVisitor<T>) {
         leftChild?.traversePostOrder(visit)
         rightChild?.traversePostOrder(visit)
         visit(value)
@@ -65,5 +68,17 @@ class BinaryNode<T: Comparable<T>>(var value: T) {
                     this.rightChild == other.rightChild
         } else
             false
+    }
+
+    fun contains(subtree: BinarySerachTree<T>): Boolean {
+        val set = mutableSetOf<T>()
+        root?.traverseInOrder {
+            set.add(it)
+        }
+        var isEqual = true
+        subtree.root?.traverseInOrder {
+            isEqual = isEqual && set.contains(it)
+        }
+        return isEqual
     }
 }
