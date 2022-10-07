@@ -24,4 +24,9 @@ class BinaryNode<T>(val value: T) {
         rightChild?.traverseInOrder(visit)
     }
 
+    fun traversePreOrder(visit: BinaryVisitor<T>){
+        visit(value)
+        leftChild?.traversePreOrder(visit)
+        rightChild?.traversePreOrder(visit)
+    }
 }
