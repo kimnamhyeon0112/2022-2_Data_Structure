@@ -113,10 +113,6 @@ class AVLTree<T: Comparable<T>> {
     }
 
     fun nodesOfPerfect(height: Int):Int {
-        var totalNodes = 0
-        (0..height).forEach { currentHeight ->
-            totalNodes += leafNodesOfPerfect(currentHeight)
-        }
-        return totalNodes
+        return leafNodesOfPerfect(height + 1) - 1
     }
 }
