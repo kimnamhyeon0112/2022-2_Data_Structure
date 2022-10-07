@@ -16,6 +16,9 @@ fun makeBinaryTree(): BinaryNode<Int> {
 
 fun main()
 {
-    val tree = makeBinaryTree()
-    println(tree.height())
+    val bst = BinarySerachTree<Int>()
+    (0..4).forEach {
+        bst.insert(it)
+    }
+    println(bst)
 }
