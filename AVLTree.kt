@@ -31,4 +31,24 @@ class AVLTree<T: Comparable<T>> {
         node.leftChild = leftRotate(leftChild)
         return rightRotate(node)
     }
+
+    private fun balanced(node: AVLNode<T>): AVLNode<T> {
+        return when (node.balanceFactor) {
+            2 -> {
+                if (node.leftChild?.balanceFactor == -1)
+                    leftRightRotate(node)
+                else
+                    rightRotate(node)
+            }
+
+            -2 -> {
+                if (node.rightChild?.balanceFactor == -1)
+                    rightLeftRotate(node)
+                else
+                    leftRotate(node)
+            }
+
+            else -> node
+        }
+    }
 }
