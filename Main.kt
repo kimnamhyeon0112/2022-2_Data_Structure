@@ -1,17 +1,8 @@
 fun main() {
-    var a = 10.downTo(1)
-    a.forEach {
-        if (it % 2 == 0) println(it)
-    }
-    println("---------------------------")
-
-    var c = 1 until 10
-    var d = c.filter {
-        it % 2 == 1
-    }
-    println(d)
-    println("---------------------------")
-
-    var e = ('a'..'c').toList() + a.toList() + d
-    println(e)
+    var a = 1..10 step 2
+    var b = 10 downTo 1 step 3
+    var c = (1..5).reversed() step 2
+    println(a.toList())
+    println(b.toList())
+    println(c.toList())
 }
