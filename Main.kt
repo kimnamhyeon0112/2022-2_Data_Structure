@@ -7,4 +7,6 @@ fun main() {
         insert("car")
     }
     println(trie.lists)
+    println(trie.count)
+    println(trie.isEmpty)
 }
