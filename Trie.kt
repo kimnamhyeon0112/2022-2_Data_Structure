@@ -21,3 +21,11 @@ class Trie<Key> {
         return current.isTerminating
     }
 }
+
+fun Trie<Char>.insert(string: String) {
+    insert(string.toList())
+}
+
+fun Trie<Char>.contains(string: String):Boolean {
+    return contains(string.toList())
+}
