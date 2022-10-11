@@ -1,11 +1,13 @@
-fun main()
-{
-    var tree = AVLTree<Int>()
-    tree.insert(15)
-    tree.insert(10)
-    tree.insert(16)
-    tree.insert(18)
-    print(tree)
-    tree.insert(10)
-    print(tree)
+fun main(){
+    var a = 1..10
+    println(a.javaClass)
+    println(a)
+
+    var b = 1.rangeTo(10)
+    println(b.javaClass)
+    println(b)
+
+    var c = 1 until 10
+    println(c.javaClass)
+    println(c)
 }
