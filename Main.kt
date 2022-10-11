@@ -4,15 +4,7 @@ fun main() {
         insert("card")
         insert("care")
         insert("cared")
-        insert("cars")
-        insert("carbs")
-        insert("carapace")
-        insert("cargo")
+        insert("car")
     }
-    println("\nCollections starting with \"car\"")
-    val prefixedWithCar = trie.collections("car")
-    println(prefixedWithCar)
-    println("\nCollections starting with \"care\"")
-    val prefixedWithCare = trie.collections("care")
-    println(prefixedWithCare)
+    println(trie.lists)
 }
