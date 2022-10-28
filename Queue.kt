@@ -56,3 +56,54 @@ class RingBufferQueue<T>(size: Int) : QueueInterface<T> {
         if (isEmpty) null else ringBuffer.read()
     override fun toString(): String = ringBuffer.toString()
 }
+
+abstract class AbstractPriorityQueue<T>: QueueInterface<T> {
+    abstract val heap: AbstractHeap<T>
+
+    override fun enqueue(element: T): Boolean {
+        heap.insert(element)
+        return true
+    }
+
+    override fun dequeue() = heap.remove()
+
+    override val count: Int
+        get() = heap.count
+
+    override fun peek() = heap.peek()
+}
+
+class MaxPriorityQueue<T: Comparable<T>> : AbstractPriorityQueue<T>() {
+    override val heap: MaxHeap<T> = MaxHeap<T>()
+}
+
+class Heap<Element>(
+    private val comparator: Comparator<Element>
+    ): AbstractHeap<Element>() {
+    override fun compare(a: Element, b: Element): Int =
+        comparator.compare(a, b)
+}
+
+class PriorityQueue<T>(
+    private val comparator: Comparator<T>
+): AbstractPriorityQueue<T>() {
+    override val heap = Heap(comparator)
+}
+
+data class Person(
+    val name: String,
+    val age: Int,
+    val isMilitary: Boolean)
+
+object MilitaryPersonComparator : Comparator<Person> {
+    override fun compare(o1: Person, o2: Person): Int {
+        if (o1.isMilitary && !o2.isMilitary) {
+            return 1
+        } else if (!o1.isMilitary && o2.isMilitary) {
+            return -1
+        } else if (o1.isMilitary && o2.isMilitary) {
+            return o1.age.compareTo(o2.age)
+        }
+        return 0
+    }
+}
