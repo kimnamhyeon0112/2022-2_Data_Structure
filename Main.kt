@@ -1,5 +1,16 @@
+object TheThing {
+    val items = arrayListOf<String>("A", "B")
+
+    override fun toString(): String {
+        var ret = "TheThing: "
+        items.forEach {
+            ret += it
+        }
+        return ret
+    }
+}
+
 fun main() {
-    val array = arrayListOf(1, 2, 3, 3, 3, 4, 5, 5)
-    val indices = array.findIndices(3)
-    println(indices)
+    TheThing.items.add("C")
+    println(TheThing)
 }
