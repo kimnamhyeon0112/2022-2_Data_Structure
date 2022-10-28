@@ -1,16 +1,10 @@
-object TheThing {
-    val items = arrayListOf<String>("A", "B")
-
-    override fun toString(): String {
-        var ret = "TheThing: "
-        items.forEach {
-            ret += it
-        }
-        return ret
+object TheThing: ArrayList<String>() {
+    fun descSelf() {
+        println("TheThing: " + this.toString())
     }
 }
 
 fun main() {
-    TheThing.items.add("C")
-    println(TheThing)
+    TheThing.add("A")
+    TheThing.descSelf()
 }
