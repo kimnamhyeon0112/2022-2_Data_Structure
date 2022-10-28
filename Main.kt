@@ -1,12 +1,8 @@
-object MyStringComparator : Comparator<String> {
-    override fun compare(o1: String, o2: String): Int {
-        if (o1.isEmpty() || o2.isEmpty())
-            return o1.length - o2.length
-        return o1[0] - o2[0]
-    }
-}
-
 fun main() {
-    println("a".compareTo("bbb"))
-    println(listOf("cccccccc", "azz", "z", "abb").sortedWith(MyStringComparator))
+    val array = arrayListOf(1, 12, 3, 4, 1, 6, 8, 7)
+    val h = MaxHeap<Int>()
+    h.heapify(array)
+    while (!h.isEmpty) {
+        println(h.remove())
+    }
 }
