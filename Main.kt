@@ -1,14 +1,16 @@
-fun main() {
-    val p1 = Person("Josh", 21, true)
-    val p2 = Person("Jake", 22, true)
-    val p3 = Person("Clay", 28, false)
-    val p4 = Person("Cindy", 28, false)
-    val p5 = Person("Sabrina", 30, false)
-    val priorityQueue = PriorityQueue(MilitaryPersonComparator)
-    arrayListOf(p1, p2, p3, p4, p5).forEach {
-        priorityQueue.enqueue(it)
-    }
-    while (!priorityQueue.isEmpty) {
-        println(priorityQueue.dequeue())
-    }
+fun f2(): ArrayList<Int> {
+    return arrayListOf(10, 20)
+}
+
+fun f1(a: ArrayList<Int>?): Int {
+    a!!.add(a.size)
+    a.addAll(f2())
+    return a.size
+}
+
+fun main(){
+    val b = arrayListOf(5)
+    println(f1(b))
+    println(b)
+    println(f1(null))
 }
