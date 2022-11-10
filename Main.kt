@@ -16,10 +16,7 @@ fun main() {
         }
     }
 
-    val filtered: List<CollectionItem> = list.filter {
-        it.value <= 500
-        if (it.value >= 495) println(it)
-        it.value >= 495
-    }
-    println(filtered.subList(0, 5))
+    val mapped: List<String> = list.map { it.name }
+    println(mapped.subList(0, 2))
+    println(list.subList(0, 2))
 }
