@@ -16,6 +16,10 @@ fun main() {
         }
     }
 
-    val filtered: List<CollectionItem> = list.filter { it.value <= 500 }
-    println(filtered.size)
+    val filtered: List<CollectionItem> = list.filter {
+        it.value <= 500
+        if (it.value >= 495) println(it)
+        it.value >= 495
+    }
+    println(filtered.subList(0, 5))
 }
