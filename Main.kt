@@ -1,6 +1,8 @@
 fun main() {
-    val list = arrayListOf(88, 410, 1772, 20)
+    val list = (0..10).map {
+        (Math.random() * 10000).toInt()
+    }.toMutableList()
     println("Original: $list")
-    list.radixSort()
+    list.lexicographicalSort()
     println("Merge sorted: $list")
 }
