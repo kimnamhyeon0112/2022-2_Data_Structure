@@ -16,7 +16,8 @@ fun main() {
         }
     }
 
-    val mapped: List<String> = list.map { it.name }
-    println(mapped.subList(0, 2))
-    println(list.subList(0, 2))
+    val reduced: Int = list
+        .map { it.value }
+        .reduce { acc, value -> acc + value }
+    println(reduced)
 }
