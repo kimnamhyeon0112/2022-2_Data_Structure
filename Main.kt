@@ -1,10 +1,8 @@
 fun main() {
-    val stringBuilder = StringBuilder()
-    val text = with(stringBuilder) {
+    val text = StringBuilder().apply {
         for (letter in 'A'..'Z') {
             append(letter)
         }
-        toString()
-    }
+    }.toString()
     println(text)
 }
