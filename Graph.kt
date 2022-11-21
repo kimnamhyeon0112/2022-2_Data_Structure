@@ -61,6 +61,28 @@ interface Graph<T> {
         visited.remove(source)
         return ct
     }
+
+    fun breadthFirstSearch(source: Vertex<T>): ArrayList<Vertex<T>>
+    {
+        val queue = LinkedListQueue<Vertex<T>>()
+        val enqueued = ArrayList<Vertex<T>>()
+        val visited = ArrayList<Vertex<T>>()
+
+        queue.enqueue(source)
+        enqueued.add(source)
+        while (true){
+            val vertex=queue.dequeue() ?: break
+            visited.add(vertex)
+            val neighborEdges = edges(vertex)
+            neighborEdges.forEach{
+                if(!enqueued.contains(it.destination)){
+                    queue.enqueue(it.destination)
+                    enqueued.add(it.destination)
+                }
+            }
+        }
+        return visited
+    }
 }
 enum class EdgeType {
     DIRECTED, UNDIRECTED

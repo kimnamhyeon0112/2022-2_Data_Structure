@@ -1,30 +1,20 @@
-fun getGraph(): AdjacencyMatrix<String> {
+fun main() {
     val graph = AdjacencyMatrix<String>()
-    val singapore = graph.createVertex("Singapore")
-    val tokyo = graph.createVertex("tokyo")
-    val hongKong = graph.createVertex("hongKong")
-    val detroit = graph.createVertex("detroit")
-    val sanFrancisco = graph.createVertex("sanFrancisco")
-    val washingtonDC = graph.createVertex("washingtonDC")
-    val austinTexas = graph.createVertex("austinTexas")
-    val seattle = graph.createVertex("seattle")
-    graph.add(EdgeType.UNDIRECTED, singapore, hongKong, 300.0)
-    graph.add(EdgeType.UNDIRECTED, singapore, tokyo, 500.0)
-    graph.add(EdgeType.UNDIRECTED, hongKong, tokyo, 250.0)
-    graph.add(EdgeType.UNDIRECTED, tokyo, detroit, 450.0)
-    graph.add(EdgeType.UNDIRECTED, tokyo, washingtonDC, 300.0)
-    graph.add(EdgeType.UNDIRECTED, hongKong, sanFrancisco, 600.0)
-    graph.add(EdgeType.UNDIRECTED, detroit, austinTexas, 50.0)
-    graph.add(EdgeType.UNDIRECTED, austinTexas, washingtonDC, 292.0)
-    graph.add(EdgeType.UNDIRECTED, sanFrancisco, washingtonDC, 337.0)
-    graph.add(EdgeType.UNDIRECTED, washingtonDC, seattle, 277.0)
-    graph.add(EdgeType.UNDIRECTED, sanFrancisco, seattle, 218.0)
-    graph.add(EdgeType.UNDIRECTED, austinTexas, sanFrancisco, 297.0)
-    println(graph.numberOfPaths(seattle, austinTexas))
-    return graph
-}
+    val A = graph.createVertex("A");
+    val B = graph.createVertex("B")
+    val C = graph.createVertex("C");
+    val D = graph.createVertex("D")
+    val E = graph.createVertex("E");
+    val F = graph.createVertex("F")
+    val G = graph.createVertex("G");
+    val H = graph.createVertex("H")
+    graph.add(EdgeType.UNDIRECTED, A, B, 1.0);graph.add(EdgeType.UNDIRECTED, A, C, 1.0)
+    graph.add(EdgeType.UNDIRECTED, A, D, 1.0);graph.add(EdgeType.UNDIRECTED, B, E, 1.0)
+    graph.add(EdgeType.UNDIRECTED, C, F, 1.0);graph.add(EdgeType.UNDIRECTED, C, G, 1.0)
+    graph.add(EdgeType.UNDIRECTED, E, H, 1.0)
 
-fun main(){
-    val graph = getGraph()
-    println(graph)
+    val vertices = graph.breadthFirstSearch(A)
+    vertices.forEach {
+        println(it.data)
+    }
 }
