@@ -20,6 +20,7 @@ fun getGraph(): AdjacencyMatrix<String> {
     graph.add(EdgeType.UNDIRECTED, washingtonDC, seattle, 277.0)
     graph.add(EdgeType.UNDIRECTED, sanFrancisco, seattle, 218.0)
     graph.add(EdgeType.UNDIRECTED, austinTexas, sanFrancisco, 297.0)
+    println(graph.numberOfPaths(seattle, austinTexas))
     return graph
 }
 
