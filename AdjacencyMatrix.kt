@@ -57,4 +57,7 @@ class AdjacencyMatrix<T> : Graph<T> {
         val edgesDescription = grid.joinToString("\n")
         return "$verticesDescription\n\n$edgesDescription"
     }
+
+    override val allVertices: ArrayList<Vertex<T>>
+        get() = vertices
 }
