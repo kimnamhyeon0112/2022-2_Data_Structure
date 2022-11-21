@@ -1,3 +1,5 @@
+import java.io.PushbackInputStream
+
 interface Graph<T> {
     fun createVertex(data: T): Vertex<T>
     fun addDirectedEdge(
@@ -122,6 +124,26 @@ interface Graph<T> {
             stack.pop()
         }
         return visited
+    }
+
+    fun hasCycle(source: Vertex<T>): Boolean {
+        val pushed = mutableSetOf<Vertex<T>>()
+        return hasCycle(source, pushed)
+    }
+
+    private fun hasCycle(source: Vertex<T>, pushed: MutableSet<Vertex<T>>):
+            Boolean {
+        pushed.add(source)
+        val neighbors = edges(source)
+        neighbors.forEach {
+            if (it.destination !in pushed && hasCycle(it.destination, pushed)) {
+                return true
+            } else if (it.destination in pushed) {
+                return true
+            }
+        }
+        pushed.remove(source)
+        return false
     }
 }
 enum class EdgeType {
