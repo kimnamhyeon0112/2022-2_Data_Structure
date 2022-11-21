@@ -13,7 +13,7 @@ fun main() {
     graph.add(EdgeType.UNDIRECTED, C, F, 1.0);graph.add(EdgeType.UNDIRECTED, C, G, 1.0)
     graph.add(EdgeType.UNDIRECTED, E, H, 1.0)
 
-    val vertices = graph.breadthFirstSearch(A)
+    val vertices = graph.depthFirstSearch(A)
     vertices.forEach {
         println(it.data)
     }
