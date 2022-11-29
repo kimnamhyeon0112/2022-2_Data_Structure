@@ -29,4 +29,10 @@ class AdjacencyList<T> : Graph<T> {
 
     override val allVertices: ArrayList<Vertex<T>>
         get() = ArrayList(adjacencies.keys)
+
+    fun copyVertices(graph: AdjacencyList<T>) {
+        graph.allVertices.forEach {
+            adjacencies[it] = arrayListOf()
+        }
+    }
 }
